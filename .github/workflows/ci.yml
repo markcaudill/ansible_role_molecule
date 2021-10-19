@@ -19,7 +19,7 @@ jobs:
       - name: Check out the codebase.
         uses: actions/checkout@v2
         with:
-          path: ansible_role_template
+          path: molecule
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2
@@ -34,4 +34,4 @@ jobs:
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
-        working-directory: ansible_role_template
+        working-directory: molecule

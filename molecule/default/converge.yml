@@ -2,6 +2,6 @@
 - name: Converge
   hosts: all
   tasks:
-    - name: "Include ansible_role_template"
+    - name: "Include ansible_role_molecule"
       include_role:
-        name: "ansible_role_template"
+        name: "ansible_role_molecule"

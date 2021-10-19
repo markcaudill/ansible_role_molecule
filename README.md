@@ -1,8 +1,8 @@
-ansible_role_template
+ansible_role_molecule
 =====================
 
-[![GitHub](https://img.shields.io/github/license/markcaudill/ansible_role_template)](LICENSE)
-[![CI](https://github.com/markcaudill/ansible_role_template/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/markcaudill/ansible_role_template/actions/workflows/ci.yml)
+[![GitHub](https://img.shields.io/github/license/markcaudill/ansible_role_molecule)](LICENSE)
+[![CI](https://github.com/markcaudill/ansible_role_molecule/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/markcaudill/ansible_role_molecule/actions/workflows/ci.yml)
 
 A brief description of the role goes here.
 
@@ -28,7 +28,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: localhost
       roles:
-         - { role: markcaudill.ansible_role_template }
+         - { role: markcaudill.ansible_role_molecule }
 
 Author Information
 ------------------

@@ -1,8 +1,8 @@
 ---
 galaxy_info:
   author: markcaudill
-  role_name: ansible_role_template
-  description: Ansible template roles template
+  role_name: molecule
+  description: Install Molecule
   license: MIT
   min_ansible_version: 2.1
   platforms:
