@@ -1,0 +1,78 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: ansible_role_template_centos_7
+    image: markcaudill/ansible-centos:7
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+  - name: ansible_role_template_centos_8
+    image: markcaudill/ansible-centos:8
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+  - name: ansible_role_template_fedora_33
+    image: markcaudill/ansible-fedora:33
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+  - name: ansible_role_template_fedora_34
+    image: markcaudill/ansible-fedora:34
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+  - name: ansible_role_template_debian_9
+    image: markcaudill/ansible-debian:9
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+  - name: ansible_role_template_debian_10
+    image: markcaudill/ansible-debian:10
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+  - name: ansible_role_template_debian_11
+    image: markcaudill/ansible-debian:11
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+  - name: ansible_role_template_ubuntu_16.04
+    image: markcaudill/ansible-ubuntu:16.04
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+  - name: ansible_role_template_ubuntu_18.04
+    image: markcaudill/ansible-ubuntu:18.04
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+  - name: ansible_role_template_ubuntu_20.04
+    image: markcaudill/ansible-ubuntu:20.04
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
+lint: |
+  bash -c '
+  set -e
+  yamllint -v
+  yamllint .
+  ansible-lint --version
+  ansible-lint -v .
+  '
