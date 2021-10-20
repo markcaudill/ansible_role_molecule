@@ -1,2 +1,25 @@
 ---
-# tasks file for ansible_role_molecule
+# tasks file for molecule
+
+- name: ensure apt cache is updated
+  apt:
+    update_cache: true
+  when: ansible_os_family == "Debian"
+
+- name: ensure dependencies are installed
+  become: true
+  ansible.builtin.package:
+    name: "{{ molecule_dependencies[ansible_os_family] }}"
+  tags: [molecule, package]
+
+- name: ensure pip and setuptools are updated
+  ansible.builtin.pip:
+    name: [pip, setuptools]
+    extra_args: --user --upgrade
+  tags: [molecule, package]
+
+- name: ensure molecule is installed
+  ansible.builtin.pip:
+    name: "{{ molecule_package }}"
+    extra_args: --user
+  tags: [molecule, package]

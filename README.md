@@ -1,5 +1,5 @@
-ansible_role_molecule
-=====================
+molecule
+========
 
 [![GitHub](https://img.shields.io/github/license/markcaudill/ansible_role_molecule)](LICENSE)
 [![CI](https://github.com/markcaudill/ansible_role_molecule/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/markcaudill/ansible_role_molecule/actions/workflows/ci.yml)
@@ -28,7 +28,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: localhost
       roles:
-         - { role: markcaudill.ansible_role_molecule }
+         - { role: markcaudill.molecule }
 
 Author Information
 ------------------

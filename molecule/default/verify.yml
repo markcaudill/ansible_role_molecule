@@ -3,8 +3,40 @@
 
 - name: Verify
   hosts: all
-  gather_facts: false
+  gather_facts: true
+  vars:
+    packages:
+      Debian: [libssl-dev, python3-pip]
+      RedHat: [gcc, openssl-devel, python3-devel, python3-libselinux, python3-pip]
   tasks:
-  - name: Example assertion
+  - name: ensure apt cache is up to date
+    apt:
+      update_cache: yes
+    when: ansible_os_family == "Debian"
+
+  - name: gather installed packages
+    ansible.builtin.package:
+      name: "{{ packages[ansible_os_family] }}"
+    check_mode: true
+    register: installed_packages
+
+  - name: confirm correct packages are installed
     assert:
-      that: true
+      that: not installed_packages.changed
+
+  - name: check molecule is installed
+    environment:
+      PATH: "{{ ansible_env.PATH }}:{{ ansible_env.HOME }}/.local/bin"
+    ansible.builtin.command: molecule --version
+    register: molecule_version
+    failed_when: false
+    changed_when: false
+
+  - debug:
+      msg: "{{ molecule_version }}"
+
+  - name: confirm molecule is installed
+    assert:
+      that:
+        - molecule_version.rc == 0
+        - molecule_version.stdout != ""

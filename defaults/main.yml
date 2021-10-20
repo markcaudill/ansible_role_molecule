@@ -1,2 +1,8 @@
 ---
 # defaults file for ansible_role_molecule
+
+molecule_dependencies:
+  Debian: [libssl-dev, python3-pip]
+  RedHat: [gcc, openssl-devel, python3-devel, python3-libselinux, python3-pip]
+molecule_package_options: [ansible, docker, windows, lint]
+molecule_package: molecule[{{ molecule_package_options|join(',') }}]
