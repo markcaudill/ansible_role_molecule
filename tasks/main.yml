@@ -16,6 +16,7 @@
   ansible.builtin.pip:
     name: [pip, setuptools]
     extra_args: --user --upgrade
+  changed_when: false
   tags: [molecule, package]
 
 - name: ensure molecule is installed
