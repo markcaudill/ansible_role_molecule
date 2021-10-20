@@ -4,13 +4,13 @@
 - name: ensure apt cache is updated
   apt:
     update_cache: true
+  changed_when: false
   when: ansible_os_family == "Debian"
 
 - name: ensure dependencies are installed
   become: true
   ansible.builtin.package:
     name: "{{ molecule_dependencies[ansible_os_family] }}"
-  changed_when: false
   tags: [molecule, package]
 
 - name: ensure pip and setuptools are updated
