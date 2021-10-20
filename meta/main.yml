@@ -11,8 +11,8 @@ galaxy_info:
   - name: Fedora
     versions: [33, 34]
   - name: Debian
-    versions: [11]
+    versions: [bullseye]
   - name: Ubuntu
-    versions: [20.04]
+    versions: [focal]
   galaxy_tags: []
 dependencies: []
